@@ -38,6 +38,8 @@ model Reinos {
 	ubicaion 	String
 	suoerficie 	String
 	personaje	Personaje_habita_reino[]
+	diplomacia1	Diplomacias?						@relation("test1")
+	diplomacia2 Diplomacias[]					@relation("test2")
 }
 
 model Trabajos{
@@ -58,11 +60,23 @@ model Personaje_tiene_trabajo {
 	@@id([id_trabajo, id_personaje])
 }
 
-modelo Personaje_habita_reino{
+model Personaje_habita_reino{
 	personaje		Personajes	@relation(fields: [id_personaje], references: [id])
 	id_personaje	Int
 	reino			Reinos		@relation(fields: [id_reino], references: [id])
 	id_reino		Int
 	fecha_registro	DateTime
 	es_gobernante	Boolean
+	
+	@@id([id_reino, id_personaje])
 }
+
+model Diplomacias{
+	id_reino1	Int 	@unique
+	id_reino2	Int
+	reino1		Reinos	@relation("test1",fields: [id_reino1], references: [id])
+	reino2		Reinos	@relation("test2", fields: [id_reino2], references: [id])
+	es_aliado	Boolean
+	
+	@@id([id_reino1, id_reino2])
+}	
