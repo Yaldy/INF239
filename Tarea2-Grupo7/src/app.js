@@ -1,5 +1,7 @@
 import express from 'express';
 import UsersController from './controllers/UsersController.js';
+import personajesController from './controllers/personajesController.js';
+import kartsController from './controllers/kartsController.js';
 import morgan from 'morgan';
 
 const ENV = process.env;
@@ -21,6 +23,17 @@ app.get('/hola', (req, res) => {
 	}
 )
 
+//==========================================================//
+
+app.post('/personaje', personajesController.createPersonaje)
+app.get('/personaje', personajesController.getPersonajes)
+app.put('/personaje/:id', personajesController.updatePersonaje)
+app.delete('/personaje/:id', personajesController.deletePersonaje)
+
+//==========================================================//
+
+app.get('/kart', kartsController.getKarts)
+app.post('/kart', kartsController.createKart)
 
 //==========================================================//
 app.get('/', (req, res) => {
