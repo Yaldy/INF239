@@ -38,8 +38,9 @@ model Reinos {
 	ubicaion 	String
 	suoerficie 	String
 	personaje	Personaje_habita_reino[]
-	diplomacia1	Diplomacias?						@relation("test1")
-	diplomacia2 Diplomacias[]					@relation("test2")
+	diplomacia1	Diplomacias?						@relation("reino1")
+	diplomacia2 Diplomacias[]					@relation("reino2")
+	defensas	Defensa_pertenece_reino[]
 }
 
 model Trabajos{
@@ -74,9 +75,24 @@ model Personaje_habita_reino{
 model Diplomacias{
 	id_reino1	Int 	@unique
 	id_reino2	Int
-	reino1		Reinos	@relation("test1",fields: [id_reino1], references: [id])
-	reino2		Reinos	@relation("test2", fields: [id_reino2], references: [id])
+	reino1		Reinos	@relation("reino1",fields: [id_reino1], references: [id])
+	reino2		Reinos	@relation("reino2", fields: [id_reino2], references: [id])
 	es_aliado	Boolean
 	
 	@@id([id_reino1, id_reino2])
 }	
+
+model Defensas{
+	id 			Int @id @default(autoincrement())
+	defensa 	String
+	reinos		Defensa_pertenece_reino[]
+}
+
+model Defensa_pertenece_reino{
+	defensa			Defensas		@relation(fields: [id_defensa], references: [id])
+	id_defensa		Int
+	reino			Reinos		@relation(fields: [id_reino], references: [id])
+	id_reino		Int
+	
+	@@id([id_reino, id_defensa])
+}
