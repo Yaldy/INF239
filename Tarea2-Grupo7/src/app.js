@@ -1,8 +1,12 @@
 import express from 'express';
 import UsersController from './controllers/UsersController.js';
-import personajesController from './controllers/personajesController.js';
-import kartsController from './controllers/kartsController.js';
 import morgan from 'morgan';
+
+import PersonajesController from './controllers/personajesController.js';
+import KartsController from './controllers/kartsController.js';
+
+
+import TrabajosController from './controllers/TrabajosController.js';
 
 const ENV = process.env;
 const app = express();
@@ -23,17 +27,24 @@ app.get('/hola', (req, res) => {
 	}
 )
 
-//==========================================================//
+//=========================Personajes=================================//
 
 app.post('/personaje', personajesController.createPersonaje)
 app.get('/personaje', personajesController.getPersonajes)
 app.put('/personaje/:id', personajesController.updatePersonaje)
 app.delete('/personaje/:id', personajesController.deletePersonaje)
 
-//==========================================================//
+//============================Karts==============================//
 
 app.get('/kart', kartsController.getKarts)
 app.post('/kart', kartsController.createKart)
+
+//===============================Trabajos======================
+
+app.post('/trabajos', TrabajosController.createTrabajo)
+app.get('/trabajos/:id', TrabajosController.getTrabajoById)
+app.put('/trabajos/:id/:sueldo', TrabajosController.updateSueldoById)
+app.delete('/trabajos/:id', TrabajosController.deleteTrabajoById)
 
 //==========================================================//
 app.get('/', (req, res) => {
