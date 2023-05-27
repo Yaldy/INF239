@@ -29,15 +29,15 @@ app.get('/hola', (req, res) => {
 
 //=========================Personajes=================================//
 
-app.post('/personaje', personajesController.createPersonaje)
-app.get('/personaje', personajesController.getPersonajes)
-app.put('/personaje/:id', personajesController.updatePersonaje)
-app.delete('/personaje/:id', personajesController.deletePersonaje)
+app.post('/personaje', PersonajesController.createPersonaje)
+app.get('/personaje', PersonajesController.getPersonajes)
+app.put('/personaje/:id', PersonajesController.updatePersonaje)
+app.delete('/personaje/:id', PersonajesController.deletePersonaje)
 
 //============================Karts==============================//
 
-app.get('/kart', kartsController.getKarts)
-app.post('/kart', kartsController.createKart)
+app.get('/kart', KartsController.getKarts)
+app.post('/kart', KartsController.createKart)
 
 //===============================Trabajos======================
 
