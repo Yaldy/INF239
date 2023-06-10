@@ -50,11 +50,11 @@ app.delete('/trabajos/:id', TrabajosController.deleteTrabajoById)
 
 //=====================Personaje Tiene Trabajos======================
 
-app.post('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.createPersonajeConTrabajo)
-app.get('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajo)
-app.get('/personajetienetrabajos/:id', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIdPersonaje)
-app.put('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
-app.delete('/personajetienetrabajos/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
+app.post('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.createPersonajeConTrabajo)
+app.get('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajo)
+app.get('/personajetienetrabajo/:id', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIdPersonaje)
+app.put('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
+app.delete('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
 
 //==========================================================//
 app.get('/', (req, res) => {

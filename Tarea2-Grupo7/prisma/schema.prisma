@@ -70,14 +70,14 @@ model Trabajos{
 }
 
 model Personaje_tiene_trabajo {
-	trabajo 		Trabajos	@relation(fields: [id_trabajo], references: [id])
-	id_trabajo 		Int
 	personaje 		Personajes	@relation(fields: [id_personaje], references: [id])
 	id_personaje 	Int
+	trabajo 		Trabajos	@relation(fields: [id_trabajo], references: [id])
+	id_trabajo 		Int
 	fecha_inicio 	DateTime	@db.Date
 	fecha_termino 	DateTime?	@db.Date
 	
-	@@id([id_trabajo, id_personaje])
+	@@id([id_personaje, id_trabajo])
 }
 
 model Personaje_habita_reino{
@@ -88,7 +88,7 @@ model Personaje_habita_reino{
 	fecha_registro	DateTime	@default(now())
 	es_gobernante	Boolean
 	
-	@@id([id_reino, id_personaje])
+	@@id([id_personaje, id_reino])
 }
 
 model Diplomacias{
