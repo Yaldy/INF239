@@ -13,6 +13,11 @@ const createTrabajo = async (req, res) => {
 }
 
 //READ
+const getTrabajo = async (req, res) => {
+    const trabajos = await prisma.trabajos.findUnique
+    res.json(trabajos)
+}
+
 const getTrabajoById = async (req, res) => {
     const { id } = req.params
     const trabajos = await prisma.trabajos.findUnique({
@@ -38,6 +43,7 @@ const updateSueldoById = async (req, res) => {
 	res.json(trabajos)
 }
 
+//DELETE
 const deleteTrabajoById = async (req, res) => {
     const { id } = req.params
     const trabajos = await prisma.trabajos.delete({
@@ -51,6 +57,7 @@ const deleteTrabajoById = async (req, res) => {
 
 const TrabajosController = {
    createTrabajo,
+   getTrabajo,
    getTrabajoById,
    updateSueldoById,
    deleteTrabajoById

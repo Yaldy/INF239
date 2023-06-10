@@ -6,14 +6,18 @@ const getPersonajes = async (req , res) => {
 }
 //CREATE
 const createPersonaje = async (req, res) => {
-    const { nombre, fuerza } = req.body
+    const { nombre, fuerza, fecha_nacimiento, objeto } = req.body
+	//const fecha = new Date(fecha_nacimiento);
+	
     const personaje = await prisma.personajes.create({
         data: {
             nombre, 
-            fuerza
+            fuerza,
+			fecha_nacimiento:  new Date(fecha_nacimiento),
+			objeto
         }
-    })
-    res.json(personaje)
+    });
+    res.json(personaje);
 }
 //UPDATE
 const updatePersonaje = async (req, res) => {

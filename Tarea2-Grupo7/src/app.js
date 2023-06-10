@@ -7,7 +7,7 @@ import KartsController from './controllers/kartsController.js';
 
 
 import TrabajosController from './controllers/TrabajosController.js';
-
+import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
 const ENV = process.env;
 const app = express();
 
@@ -42,9 +42,19 @@ app.post('/kart', KartsController.createKart)
 //===============================Trabajos======================
 
 app.post('/trabajos', TrabajosController.createTrabajo)
+app.get('/trabajos', TrabajosController.getTrabajo)
 app.get('/trabajos/:id', TrabajosController.getTrabajoById)
 app.put('/trabajos/:id/:sueldo', TrabajosController.updateSueldoById)
 app.delete('/trabajos/:id', TrabajosController.deleteTrabajoById)
+
+
+//=====================Personaje Tiene Trabajos======================
+
+app.post('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.createPersonajeConTrabajo)
+app.get('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajo)
+app.get('/personajetienetrabajos/:id', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIdPersonaje)
+app.put('/personajetienetrabajos', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
+app.delete('/personajetienetrabajos/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
 
 //==========================================================//
 app.get('/', (req, res) => {
