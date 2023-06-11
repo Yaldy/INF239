@@ -2,6 +2,8 @@ import express from 'express';
 import UsersController from './controllers/UsersController.js';
 import morgan from 'morgan';
 
+import API_Controller from './controllers/API_Controller.js';
+
 import PersonajesController from './controllers/personajesController.js';
 import kartsController from './controllers/kartsController.js';
 import reinosController from './controllers/reinosController.js';
@@ -66,6 +68,11 @@ app.get('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.getPersonaj
 app.get('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIds)
 app.put('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
 app.delete('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
+
+//=======================APIs===================================//
+
+app.get('/api/top5personajesConMasFuerza', API_Controller.top5personajesConMasFuerza)
+app.get('/api/personajeConMasKarts', API_Controller.personajeConMasKarts)
 
 //==========================================================//
 app.get('/', (req, res) => {
