@@ -54,7 +54,7 @@ model Karts {
 model Reinos {
 	id 			Int 							@id @default(autoincrement())
 	nombre 		String							@db.VarChar(45)
-	ubicaion 	String							@db.VarChar(45)
+	ubicacion 	String							@db.VarChar(45)
 	superficie 	Int
 	personaje	Personaje_habita_reino[]
 	diplomacia1	Diplomacias?					@relation("reino1")

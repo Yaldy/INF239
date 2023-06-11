@@ -3,8 +3,8 @@ import UsersController from './controllers/UsersController.js';
 import morgan from 'morgan';
 
 import PersonajesController from './controllers/personajesController.js';
-import KartsController from './controllers/kartsController.js';
-
+import kartsController from './controllers/kartsController.js';
+import reinosController from './controllers/reinosController.js';
 
 import TrabajosController from './controllers/TrabajosController.js';
 import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
@@ -30,14 +30,18 @@ app.get('/hola', (req, res) => {
 //=========================Personajes=================================//
 
 app.post('/personaje', PersonajesController.createPersonaje)
+app.get('/personaje/:id', PersonajesController.getPersonajeById)
 app.get('/personaje', PersonajesController.getPersonajes)
 app.put('/personaje/:id', PersonajesController.updatePersonaje)
 app.delete('/personaje/:id', PersonajesController.deletePersonaje)
 
 //============================Karts==============================//
 
-app.get('/kart', KartsController.getKarts)
-app.post('/kart', KartsController.createKart)
+app.get('/karts', kartsController.getKarts)
+app.get('/karts/:id', kartsController.getKartsById)
+app.post('/karts', kartsController.createKart)
+app.put('/karts/:id', kartsController.updateKart)
+app.delete('/karts/:id', kartsController.deleteKart)
 
 //===============================Trabajos======================
 
@@ -47,6 +51,13 @@ app.get('/trabajos/:id', TrabajosController.getTrabajoById)
 app.put('/trabajos/:id/:sueldo', TrabajosController.updateSueldoById)
 app.delete('/trabajos/:id', TrabajosController.deleteTrabajoById)
 
+//==============================Reinos============================//
+
+app.get('/reinos', reinosController.getReinos)
+app.get('/reinos/:id', reinosController.getReinosById)
+app.post('/reinos', reinosController.createReino)
+app.put('/reinos/:id', reinosController.updateReino)
+app.delete('/reinos/:id', reinosController.deleteReino)
 
 //=====================Personaje Tiene Trabajos======================
 

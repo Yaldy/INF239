@@ -10,7 +10,6 @@ const getPersonajeById = async (req, res) => {
     const { id } = req.params
 
     try {
-		
         const personaje = await prisma.personajes.findUnique({
             where: {
                 id: Number(id)
@@ -67,11 +66,12 @@ const deletePersonaje = async (req, res) => {
     res.json(personaje)
 }
 
-const personajesController = {
+const PersonajesController = {
     createPersonaje,    
     getPersonajes,
+    getPersonajeById,
     updatePersonaje,
     deletePersonaje 
 }
 
-export default personajesController
+export default PersonajesController

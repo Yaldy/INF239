@@ -20,12 +20,21 @@ const getTrabajo = async (req, res) => {
 
 const getTrabajoById = async (req, res) => {
     const { id } = req.params
-    const trabajos = await prisma.trabajos.findUnique({
-        where: {
-            id: Number(id)
+    try {
+        const trabajos = await prisma.trabajos.findUnique({
+            where: {
+                id: Number(id)
+            }
+        })
+		if (!trabajos) {
+            throw new Error('Trabajo no existe en la base de datos.');
         }
-    })
-    res.json(trabajos)
+        res.json(trabajos)
+    } catch (error) {
+        console.log('Se produjo un error:', error.message);
+        res.json({ message: 'No existe Trabajo.' })
+    }
+
 }
 
 //UPDATE
