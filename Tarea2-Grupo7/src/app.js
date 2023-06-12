@@ -13,6 +13,7 @@ import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Tr
 import personajeHabitaReinoController from './controllers/personaje_habita_reinoController.js'
 import DefensasController from './controllers/DefensasController.js'
 import DiplomaciasController from './controllers/DiplomaciasController.js'
+import Defensa_pertenece_reinoController from './controllers/Defensa_pertenece_reinoController.js'
 
 
 const ENV = process.env;
@@ -82,8 +83,6 @@ app.get('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.getP
 app.put('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.updatePersonajeHabitaReino)
 app.delete('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.deletePersonajeHabitaReino)
 
-
-
 //===============================Defensas======================
 
 app.post('/defensas', DefensasController.createDefensa)
@@ -99,6 +98,13 @@ app.get('/diplomacias', DiplomaciasController.getDiplomacias)
 app.get('/diplomacias/:id_r1/:id_r2', DiplomaciasController.getDiplomaciasByIds)
 app.put('/diplomacias/:id_r1/:id_r2', DiplomaciasController.updateDiplomacias)
 app.delete('/diplomacias/:id_r1/:id_r2', DiplomaciasController.deleteDiplomacias)
+
+//=====================Defensa pertenece Reino======================
+
+app.post('/defensapertenecereino', Defensa_pertenece_reinoController.createDefensa_pertenece_reino)
+app.get('/defensapertenecereino', Defensa_pertenece_reinoController.getDefensa_pertenece_reino)
+app.get('/defensapertenecereino/:id_d/:id_r', Defensa_pertenece_reinoController.getDefensa_pertenece_reinoByIds)
+app.delete('/defensapertenecereino/:id_d/:id_r', Defensa_pertenece_reinoController.deleteDefensa_pertenece_reino)
 
 
 //=======================APIs===================================//
