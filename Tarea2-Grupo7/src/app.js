@@ -10,7 +10,7 @@ import reinosController from './controllers/reinosController.js';
 
 import TrabajosController from './controllers/TrabajosController.js';
 import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
-import personajeHabitaReinoController from './controllers/Personaje_habita_reinoController.js'
+import personajeHabitaReinoController from './controllers/personaje_habita_reinoController.js'
 
 const ENV = process.env;
 const app = express();
@@ -83,6 +83,7 @@ app.delete('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.d
 
 app.get('/api/top5personajesConMasFuerza', API_Controller.top5personajesConMasFuerza)
 app.get('/api/personajeConMasKarts', API_Controller.personajeConMasKarts)
+app.get('/api/cantidadHabitantes/:id', API_Controller.cantidadHabitantes)
 
 //==========================================================//
 app.get('/', (req, res) => {
