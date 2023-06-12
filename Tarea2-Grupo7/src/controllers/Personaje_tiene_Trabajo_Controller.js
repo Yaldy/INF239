@@ -6,11 +6,8 @@ const createPersonajeConTrabajo = async (req, res) => {
 	const { id_personaje, id_trabajo, fecha_inicio, fecha_termino } = req.body
     try{
 		if(id_personaje==null || id_trabajo==null || fecha_inicio==null){
-			throw new Error('Falta ingresar un dato.')
+			throw new Error('Falta ingresar al menos un dato.')
 		}
-		/*if((`id_personaje`,`id_trabajo`)){
-			throw new Error('Ya está ingresada esta tupla personaje-trabajo')
-		}*/
 		const personaje_tiene_trabajo = await prisma.personaje_tiene_trabajo.create({
 			data: {
 				id_personaje, 
@@ -128,13 +125,12 @@ const updateTrabajoByIdPersonaje = async (req, res) => {
 		console.log('Se produjo un error:', error.message);
 		error.message = "Se produjo un error: " + error.message;
         res.status(400).json({ message: error.message})
-	
 	}
 	
 }
 
 //DELETE
-const deletePersonajeConTrabajoByIdPeresonaje = async (req, res) => {
+const deletePersonajeConTrabajoById = async (req, res) => {
     
 	try{
 		const { id_p,id_t } = req.params
@@ -164,7 +160,7 @@ const Personaje_tiene_Trabajo_Controller = {
    getPersonajeConTrabajo,
    getPersonajeConTrabajoByIds,
    updateTrabajoByIdPersonaje,
-   deletePersonajeConTrabajoByIdPeresonaje
+   deletePersonajeConTrabajoById
 }
 
 export default Personaje_tiene_Trabajo_Controller

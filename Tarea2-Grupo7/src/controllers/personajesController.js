@@ -107,7 +107,6 @@ const updatePersonaje = async (req, res) => {
 		console.log('Se produjo un error:', error.message);
 		error.message = "Se produjo un error: " + error.message;
         res.status(400).json({ message: error.message})
-	
 	}
 }
 //DELETE

@@ -10,6 +10,8 @@ import reinosController from './controllers/reinosController.js';
 
 import TrabajosController from './controllers/TrabajosController.js';
 import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
+import personajeHabitaReinoController from './controllers/Personaje_habita_reinoController.js'
+
 const ENV = process.env;
 const app = express();
 
@@ -67,7 +69,15 @@ app.post('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.createPers
 app.get('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajo)
 app.get('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIds)
 app.put('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
-app.delete('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
+app.delete('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoById)
+
+//=====================Personaje habita Reino======================
+
+app.post('/personajehabitareino', personajeHabitaReinoController.createPersonajeHabitaReino)
+app.get('/personajehabitareino', personajeHabitaReinoController.getPersonajeHabitaReino)
+app.get('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.getPersonajeHabitaReinoByIds)
+app.put('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.updatePersonajeHabitaReino)
+app.delete('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.deletePersonajeHabitaReino)
 
 //=======================APIs===================================//
 
