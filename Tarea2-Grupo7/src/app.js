@@ -112,6 +112,8 @@ app.delete('/defensapertenecereino/:id_d/:id_r', Defensa_pertenece_reinoControll
 app.get('/api/top5personajesConMasFuerza', API_Controller.top5personajesConMasFuerza)
 app.get('/api/personajeConMasKarts', API_Controller.personajeConMasKarts)
 app.get('/api/cantidadHabitantes/:id', API_Controller.cantidadHabitantes)
+app.get('/api/gobernante/', API_Controller.gobernante)
+app.get('/api/gobernante/:id', API_Controller.gobernanteByID)
 
 //==========================================================//
 app.get('/', (req, res) => {
