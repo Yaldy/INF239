@@ -54,8 +54,8 @@ const cantidadHabitantes = async (req , res) => {
     }catch{
         res.json({ message: 'Reino inválido.' })
 	}
-    res.json([{reino: reino.nombre},{habitantes: habitantesReino[0]._count.id_personaje}])
 //console.log(reino)
+    res.json([{reino: reino.nombre},{habitantes: habitantesReino[0]._count.id_personaje}])
 }
 
 const gobernanteByID = async (req , res) => {
@@ -113,6 +113,7 @@ const gobernante = async (req , res) => {
     //console.log(bb)
     res.json(gobierno)
 }
+
 
 const API_Controller = {
     top5personajesConMasFuerza,

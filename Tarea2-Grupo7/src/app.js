@@ -114,7 +114,6 @@ app.get('/api/personajeConMasKarts', API_Controller.personajeConMasKarts)
 app.get('/api/cantidadHabitantes/:id', API_Controller.cantidadHabitantes)
 app.get('/api/gobernante/', API_Controller.gobernante)
 app.get('/api/gobernante/:id', API_Controller.gobernanteByID)
-
 //==========================================================//
 app.get('/', (req, res) => {
     res.json({ message: 'Hello World!!' });
