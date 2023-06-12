@@ -1,5 +1,4 @@
 import express from 'express';
-import UsersController from './controllers/UsersController.js';
 import morgan from 'morgan';
 
 import API_Controller from './controllers/API_Controller.js';
@@ -7,7 +6,6 @@ import API_Controller from './controllers/API_Controller.js';
 import PersonajesController from './controllers/personajesController.js';
 import kartsController from './controllers/kartsController.js';
 import reinosController from './controllers/reinosController.js';
-
 import TrabajosController from './controllers/TrabajosController.js';
 import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
 import personajeHabitaReinoController from './controllers/personaje_habita_reinoController.js'
@@ -22,18 +20,6 @@ const app = express();
 //middleware
 app.use(express.json());
 app.use(morgan('dev'));
-
-//endpoints(Routes)
-app.get('/users', UsersController.getUsers)
-app.get('/users/:id', UsersController.getUserById)
-app.post('/users', UsersController.createUser)
-app.get('/users/:id/posts', UsersController.usersPosts)
-
-app.get('/hola', (req, res) => {
-		//res.status(200);
-		res.json('Hola');
-	}
-)
 
 //=========================Personajes=================================//
 
@@ -106,7 +92,6 @@ app.get('/defensapertenecereino', Defensa_pertenece_reinoController.getDefensa_p
 app.get('/defensapertenecereino/:id_d/:id_r', Defensa_pertenece_reinoController.getDefensa_pertenece_reinoByIds)
 app.delete('/defensapertenecereino/:id_d/:id_r', Defensa_pertenece_reinoController.deleteDefensa_pertenece_reino)
 
-
 //=======================APIs===================================//
 
 app.get('/api/top5personajesConMasFuerza', API_Controller.top5personajesConMasFuerza)
@@ -114,10 +99,7 @@ app.get('/api/personajeConMasKarts', API_Controller.personajeConMasKarts)
 app.get('/api/cantidadHabitantes/:id', API_Controller.cantidadHabitantes)
 app.get('/api/gobernante/', API_Controller.gobernante)
 app.get('/api/gobernante/:id', API_Controller.gobernanteByID)
-//==========================================================//
-app.get('/', (req, res) => {
-    res.json({ message: 'Hello World!!' });
-})
+
 //==========================================================//
 
 
