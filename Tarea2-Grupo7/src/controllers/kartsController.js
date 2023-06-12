@@ -31,7 +31,7 @@ const getKarts = async (req , res) => {
 		res.json(kart)
 	}catch{
 		//console.log('Se produjo un error', error.message);
-        res.json({ message: 'No existe el personaje.' })
+        res.json({ message: 'No existe el Kart.' })
 	}
 }
 

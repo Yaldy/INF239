@@ -37,7 +37,7 @@ const getPersonajeConTrabajo = async (req, res) => {
 	}
 	catch{
 		//console.log('Se produjo un error', error.message);
-        res.json({ message: 'No existe el personaje.' })
+        res.json({ message: 'No existe el personaje con ese trabajo.' })
 	}
 }
 
@@ -55,12 +55,12 @@ const getPersonajeConTrabajoByIds = async (req, res) => {
 			},
 		})
 		if (!personaje_tiene_trabajo) {
-            throw new Error('Personaje no existe en la base de datos.');
+            throw new Error('Personaje con ese trabajo no existe en la base de datos.');
         }
 		res.json(personaje_tiene_trabajo)
 	} catch (error) {
         console.log('Se produjo un error:', error.message);
-        res.json({ message: 'No existe el personaje.' })
+        res.json({ message: 'No existe el personaje con ese trabajo.' })
     }
 }
 

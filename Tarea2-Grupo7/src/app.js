@@ -48,7 +48,7 @@ app.delete('/karts/:id', kartsController.deleteKart)
 app.post('/trabajos', TrabajosController.createTrabajo)
 app.get('/trabajos', TrabajosController.getTrabajo)
 app.get('/trabajos/:id', TrabajosController.getTrabajoById)
-app.put('/trabajos/:id/:sueldo', TrabajosController.updateSueldoById)
+app.put('/trabajos/:id', TrabajosController.updateSueldoById)
 app.delete('/trabajos/:id', TrabajosController.deleteTrabajoById)
 
 //==============================Reinos============================//

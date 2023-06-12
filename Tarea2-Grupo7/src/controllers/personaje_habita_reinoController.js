@@ -1,10 +1,6 @@
 import prisma from '../prismaClient.js'
 // INCOMPLETO
-//READ
-const getPersonajeHabitaReino = async (req , res) => {
-    const personajeHabitaReino = await prisma.personaje_habita_reino.findMany()
-    res.json(personajeHabitaReino)
-}
+
 //CREATE
 const createPersonajeHabitaReino = async (req, res) => {
     const { id_trabajo, id_reino, fecha_registro, es_gobernante } = req.body
@@ -16,6 +12,11 @@ const createPersonajeHabitaReino = async (req, res) => {
             es_gobernante: 
         }
     })
+    res.json(personajeHabitaReino)
+}
+//READ
+const getPersonajeHabitaReino = async (req , res) => {
+    const personajeHabitaReino = await prisma.personaje_habita_reino.findMany()
     res.json(personajeHabitaReino)
 }
 //UPDATE
