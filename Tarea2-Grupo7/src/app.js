@@ -11,6 +11,9 @@ import reinosController from './controllers/reinosController.js';
 import TrabajosController from './controllers/TrabajosController.js';
 import Personaje_tiene_Trabajo_Controller from './controllers/Personaje_tiene_Trabajo_Controller.js';
 import personajeHabitaReinoController from './controllers/personaje_habita_reinoController.js'
+import DefensasController from './controllers/DefensasController.js'
+import DiplomaciasController from './controllers/DiplomaciasController.js'
+
 
 const ENV = process.env;
 const app = express();
@@ -78,6 +81,25 @@ app.get('/personajehabitareino', personajeHabitaReinoController.getPersonajeHabi
 app.get('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.getPersonajeHabitaReinoByIds)
 app.put('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.updatePersonajeHabitaReino)
 app.delete('/personajehabitareino/:id_p/:id_r', personajeHabitaReinoController.deletePersonajeHabitaReino)
+
+
+
+//===============================Defensas======================
+
+app.post('/defensas', DefensasController.createDefensa)
+app.get('/defensas', DefensasController.getDefensa)
+app.get('/defensas/:id', DefensasController.getDefensaById)
+app.put('/defensas/:id', DefensasController.updateDefensaById)
+app.delete('/defensas/:id', DefensasController.deleteDefensaById)
+
+//=====================Diplomacias======================
+
+app.post('/diplomacias', DiplomaciasController.createDiplomacias)
+app.get('/diplomacias', DiplomaciasController.getDiplomacias)
+app.get('/diplomacias/:id_r1/:id_r2', DiplomaciasController.getDiplomaciasByIds)
+app.put('/diplomacias/:id_r1/:id_r2', DiplomaciasController.updateDiplomacias)
+app.delete('/diplomacias/:id_r1/:id_r2', DiplomaciasController.deleteDiplomacias)
+
 
 //=======================APIs===================================//
 
