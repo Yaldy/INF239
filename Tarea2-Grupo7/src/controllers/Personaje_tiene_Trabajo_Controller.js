@@ -2,9 +2,6 @@ import prisma from '../prismaClient.js'
 
 
 //CREATE
-//READimport prisma from '../prismaClient.js'
-
-//CREATE
 const createPersonajeConTrabajo = async (req, res) => {
 	const { id_personaje, id_trabajo, fecha_inicio, fecha_termino } = req.body
     try{
@@ -44,6 +41,8 @@ const getPersonajeConTrabajo = async (req, res) => {
 	}
 }
 
+
+//READ BY ID
 const getPersonajeConTrabajoByIds = async (req, res) => {
     const { id_p,id_t } = req.params
 	try{

@@ -71,7 +71,9 @@ const updatePersonaje = async (req, res) => {
 		if(nombre==null && fuerza==null && fecha_nacimiento==null && objeto==null){
 			throw new Error('No se especifican datos para actualizar');
 		}
+		
 		const fecha = new Date(fecha_nacimiento)
+		
 		if(isNaN(fecha)){
 		//if(nombre!=null &&  fuerza!=null && !isNaN(fecha_nacimiento) && objeto!=null){
 			const personaje = await prisma.personajes.update({
@@ -117,6 +119,7 @@ const deletePersonaje = async (req, res) => {
 				id : Number(id)
 			},
 		})
+		
 		res.json(personaje)
 	}
 	catch(error){
