@@ -57,7 +57,7 @@ model Reinos {
 	ubicacion 	String							@db.VarChar(45)
 	superficie 	Int
 	personaje	Personaje_habita_reino[]
-	diplomacia1	Diplomacias?					@relation("reino1")
+	diplomacia1	Diplomacias[]					@relation("reino1")
 	diplomacia2 Diplomacias[]					@relation("reino2")
 	defensas	Defensa_pertenece_reino[]
 }
@@ -92,13 +92,13 @@ model Personaje_habita_reino{
 }
 
 model Diplomacias{
-	id_reino1	Int 	@unique
+	id_reino1	Int 	
 	id_reino2	Int
 	reino1		Reinos	@relation("reino1",fields: [id_reino1], references: [id])
 	reino2		Reinos	@relation("reino2", fields: [id_reino2], references: [id])
 	es_aliado	Boolean
 	
-	@@id([id_reino1, id_reino2])
+	@@id([id_reino1, id_reino2]) 
 }	
 
 model Defensas{
@@ -114,5 +114,5 @@ model Defensa_pertenece_reino{
 	reino			Reinos			@relation(fields: [id_reino], references: [id])
 	id_reino		Int
 	
-	@@id([id_reino, id_defensa])
+	@@id([id_defensa, id_reino])
 }
