@@ -64,7 +64,7 @@ app.delete('/reinos/:id', reinosController.deleteReino)
 app.post('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.createPersonajeConTrabajo)
 app.get('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajo)
 app.get('/personajetienetrabajo/:id', Personaje_tiene_Trabajo_Controller.getPersonajeConTrabajoByIdPersonaje)
-app.put('/personajetienetrabajo', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
+app.put('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.updateTrabajoByIdPersonaje)
 app.delete('/personajetienetrabajo/:id_p/:id_t', Personaje_tiene_Trabajo_Controller.deletePersonajeConTrabajoByIdPeresonaje)
 
 //==========================================================//
