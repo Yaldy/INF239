@@ -38,8 +38,7 @@ const getDefensa_pertenece_reinoByIds = async (req, res) => {
 	try{
 		const defensa_pertenece_reino = await prisma.defensa_pertenece_reino.findUnique({
 			where:{
-				//id_defensa_id_reino:{
-				id_reino_id_defensa:{
+				id_defensa_id_reino:{
 					id_defensa:Number(id_d),
 					id_reino:Number(id_r),
 				},
@@ -62,8 +61,7 @@ const deleteDefensa_pertenece_reino = async (req, res) => {
 		const { id_d,id_r } = req.params
 		const defensa_pertenece_reino = await prisma.defensa_pertenece_reino.delete({
 			where:{
-				//id_defensa_id_reino:{
-				id_reino_id_defensa:{
+				id_defensa_id_reino:{
 					id_defensa:Number(id_d),
 					id_reino:Number(id_r),
 				},
